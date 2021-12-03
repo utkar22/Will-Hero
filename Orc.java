@@ -3,13 +3,15 @@ public class Orc extends Game_Object{
 	private String type;
 	private int orc_size;
 	private boolean if_bomb;
+	private int health;
 
-	Orc(double x, double y, double width, double height, double power, String type, int orc_size) {
+	Orc(double x, double y, double width, double height, double power, String type, int orc_size, int health) {
 		super(x, y, width, height, power);
 		
 		this.type = type;
 		this.orc_size = orc_size;
 		this.if_bomb = false;
+		this.health = health;
 	}
 	
 	//GETTERS

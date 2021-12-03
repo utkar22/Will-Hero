@@ -113,7 +113,5 @@ public abstract class Game_Object {
 	
 	public abstract void draw();
 	
-	
-	
 
 }
