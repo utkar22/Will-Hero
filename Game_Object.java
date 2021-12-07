@@ -57,6 +57,7 @@ public abstract class Game_Object {
 		this.power = power;
 	}
 	
+	//RIGHT, BOTTOM EDGE coordinates
 	
 	public double get_right_x() {
 		//Returns the x coordinate of the right edge
@@ -66,6 +67,32 @@ public abstract class Game_Object {
 	public double get_bottom_y() {
 		//Returns the y coordinate of the bottom edge
 		return this.y + this.height;
+	}
+	
+	public void set_right_x(double right_x) {
+		this.x = right_x - width;
+	}
+	
+	public void set_bottom_y(double bottom_y) {
+		this.y = bottom_y - height;
+	}
+	
+	//UPDATE
+	public void update_x(double val) {
+		this.x += val;
+	}
+	
+	public void update_y(double val) {
+		this.y += val;
+	}
+	
+	//RELATIVE POSITIONS
+	public double get_relative_x(double hero_x) {
+		return this.x - hero_x;
+	}
+	
+	public double get_relative_y(double hero_y) {
+		return this.y - hero_y;
 	}
 	
 	//COLLISION METHODS

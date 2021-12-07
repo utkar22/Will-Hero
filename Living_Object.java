@@ -6,9 +6,10 @@ public abstract class Living_Object extends Game_Object{
 	private boolean if_alive;
 	private int verticle_speed;
 	private double curr_base;
+	private final boolean if_hero;
 
 	Living_Object(double x, double y, double width, double height, double power,
-			int curr_jump, int jump_limit, int jump_base, int verticle_speed, double curr_base) 
+			int curr_jump, int jump_limit, int jump_base, int verticle_speed, double curr_base, boolean if_hero) 
 	{
 		super(x, y, width, height, power);
 		
@@ -17,8 +18,10 @@ public abstract class Living_Object extends Game_Object{
 		this.jump_base = jump_base;
 		this.verticle_speed = verticle_speed;
 		this.curr_base = curr_base;
+		this.if_hero = if_hero;
 		
 		this.if_alive = true;
+		
 		
 	}
 	
@@ -65,10 +68,56 @@ public abstract class Living_Object extends Game_Object{
 		this.verticle_speed = verticle_speed;
 	}
 	
+	//JUMP
+	public void reset_curr_jump() {
+		this.curr_jump = 0;
+	}
+	
+	public void max_curr_jump() {
+		this.curr_jump = jump_limit;
+	}
+	
+	public void jump() {
+		//If the current jump is smaller than the jump limit, the Living Object
+		//will decrease it's y value by 0.5 (goes up). If it is equal, then the
+		//y value is increased by 0.5 (falls down).
+		if (this.curr_jump<jump_limit) {
+			this.curr_jump--;
+			this.update_y(-.5);
+		}
+		else {
+			this.update_y(.5);
+		}
+	}
+	
 	//COLLISION FUNCTIONS
 	
 	public void collision_with_platform(Platform platform) {
 		//This function is for living objects colliding with platforms
+		
+		if (this.get_right_x()>=platform.get_x() && this.get_x()<platform.get_x()) {
+			//In the case where the living object pushes onto the left edge of 
+			//the platform, the object moves upwards. This simulates climbing
+			this.set_right_x(platform.get_x());
+			this.update_y(-2);
+		}
+		else if (platform.get_x()<this.get_x() && this.y<platform.get_y() 
+				&& this.y>=platform.get_bottom_y()) {
+			//In the case where the living object hits the platform from below.
+			//The living object's jump is set to the max jump, meaning it
+			//cannot jump more, and will fall down.
+			this.set_y(platform.get_bottom_y());
+			this.max_curr_jump();
+		}
+		else if (this.get_bottom_y()<=platform.get_y()&&this.get_bottom_y()>platform.get_bottom_y()) {
+			//In the case where the living object hits the platform from above.
+			//The most common case.
+			//Case is applicable even if the Living Object is not completely on
+			//the platform. Only a part of it being on the platform is fine.
+			//The jumping will be reset.
+			this.set_bottom_y(platform.get_y());
+			this.reset_curr_jump();
+		}
 	}
 	
 	public abstract void collision_with_hero(Hero hero);

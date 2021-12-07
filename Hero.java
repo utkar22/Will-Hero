@@ -7,7 +7,7 @@ public class Hero extends Living_Object{
 
 	Hero(double x, double y, double width, double height, double power, int curr_jump, int jump_limit, int jump_base,
 			int verticle_speed, double curr_base) {
-		super(x, y, width, height, power, curr_jump, jump_limit, jump_base, verticle_speed, curr_base);
+		super(x, y, width, height, power, curr_jump, jump_limit, jump_base, verticle_speed, curr_base, true);
 		// TODO Auto-generated constructor stub
 	}
 	

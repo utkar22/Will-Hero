@@ -1,12 +1,13 @@
 
-public class Orc extends Game_Object{
+public class Orc extends Living_Object{
 	private String type;
 	private int orc_size;
 	private boolean if_bomb;
 	private int health;
 
-	Orc(double x, double y, double width, double height, double power, String type, int orc_size, int health) {
-		super(x, y, width, height, power);
+	Orc(double x, double y, double width, double height, double power, String type, int orc_size, int health,
+			int jump_limit, int jump_base, int verticle_speed, int curr_base) {
+		super(x, y, width, height, power, 0, jump_limit, jump_base, verticle_speed, curr_base, false);
 		
 		this.type = type;
 		this.orc_size = orc_size;
