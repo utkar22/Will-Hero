@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.PauseController">
+   <children>
+      <Button fx:id="revie" layoutX="176.0" layoutY="173.0" prefHeight="26.0" prefWidth="247.0" text="Revive" />
+      <Button fx:id="exit" layoutX="177.0" layoutY="254.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="247.0" text="Exit" />
+   </children>
+</AnchorPane>

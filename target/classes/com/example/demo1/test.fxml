@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+
+<?import com.example.demo1.Hero?>
+<?import com.example.demo1.Orc?>
+<?import com.example.demo1.Platform?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<!--<?import com.example.demo1.WeaponChest?>-->
+<?import com.example.demo1.Coin?>
+<?import javafx.scene.text.Font?>
+<AnchorPane fx:id="scene2" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.GameTimeController">
+   <children>
+
+      <!--<Hero fx:id="og" layoutY="300" layoutX="100" prefHeight="50" prefWidth="50">
+      </Hero>
+      <Platform fx:id="platform"  layoutX="50.0" layoutY="350.0" prefHeight="100" prefWidth="200">
+
+      </Platform>
+      <Orc fx:id="max" layoutY="300" layoutX="550" prefHeight="50" prefWidth="50">
+      </Orc>
+      -->
+
+      <Label fx:id="score" layoutX="200.0" layoutY="30.0" prefHeight="41.0" prefWidth="268.0" text="Label">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="33.0" />
+         </font>
+      </Label>
+      <Label fx:id="position" layoutX="400.0" layoutY="30.0" prefHeight="41.0" prefWidth="268.0" text="Label">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="33.0" />
+         </font>
+      </Label>
+      <Button fx:id="pause" layoutX="37.0" layoutY="32.0" onAction="#pause" mnemonicParsing="false" prefHeight="42.0" prefWidth="39.0" text="       " />
+
+
+   </children>
+</AnchorPane>
